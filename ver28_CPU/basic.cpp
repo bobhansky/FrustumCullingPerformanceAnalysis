@@ -42,17 +42,13 @@ vec3 pos = { 0,0,0 };
 
 int main()
 {
-	// glfw: initialize and configure
-	// ------------------------------
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 
-	// glfw window creation
-	// --------------------
-	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Frustum Culling", NULL, NULL);
 	if (window == NULL)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
@@ -64,35 +60,30 @@ int main()
 	glfwSetCursorPosCallback(window, mouse_callback);
 	glfwSetScrollCallback(window, scroll_callback);
 
-	// tell GLFW to capture our mouse
+
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-	// glad: load all OpenGL function pointers
-	// ---------------------------------------
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
 		std::cout << "Failed to initialize GLAD" << std::endl;
 		return -1;
 	}
 
-	// tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
+
 	stbi_set_flip_vertically_on_load(true);
 
-	// configure global opengl state
-	// -----------------------------
+
 	glEnable(GL_DEPTH_TEST);
 
 	glfwSwapInterval(0);
 
 	camera.MovementSpeed = 20.f;
 
-	// build and compile shaders
-	// -------------------------
+
 	Shader ourShader("shaders/vs.vs", "shaders/fs.fs");
 	Shader lineShader("shaders/vs.vs", "shaders/line.fs");
 
-	// load entities
-	// -----------
+
 	Scene scene;
 	Model model = Model("./objects/cup.obj");
 	std::unique_ptr<Entity> ourEntity = make_unique<Entity>(model, false);
@@ -130,6 +121,7 @@ int main()
 	scene.add(ourEntity.get());
 
 	scene.initialize();
+
 	// render loop
 	// -----------
 	while (!glfwWindowShouldClose(window))
@@ -149,7 +141,6 @@ int main()
 		glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// don't forget to enable shader before setting uniforms
 		ourShader.use();
 
 		// view/projection transformations
