@@ -42,21 +42,21 @@
    <img src="https://github.com/bobhansky/FrustumCullingPerformanceAnalysis/blob/main/resources/28_v1f0/frame.png" width=900 height=506/>
    <img src="https://github.com/bobhansky/FrustumCullingPerformanceAnalysis/blob/main/resources/28_v1f0/renderdoc.png" width=900 height=506/>
 
-   Naive drwaing called 64001 (instances) * 2 (meshes) times of draw calls, resulting in an unsuprisingly low **7 fps**
+   Naive drawing called 64001 (instances) * 2 (meshes) times of draw calls, resulting in an unsuprisingly low **7 fps**
 
 -------------------------------------------------------------------------------------
 ## Ver2: No instance drawing + With CPU Frustum Culling
   <img src="https://github.com/bobhansky/FrustumCullingPerformanceAnalysis/blob/main/resources/28_v1f1/frame.png" width=900 height=506/>
   <img src="https://github.com/bobhansky/FrustumCullingPerformanceAnalysis/blob/main/resources/28_v1f1/renderdoc.png" width=900 height=506/>
 
-  Naive drwaing + CPU frustum culling only drew 29450 objects. in total of 29450 * 2 times of draw calls, resulting a **doubled** **15 fps** compared to Ver1
+  Naive drawing + CPU frustum culling only drew 29450 objects. in total of 29450 * 2 times of draw calls, resulting a **doubled** **15 fps** compared to Ver1
   
 -----------------------------------------------------------------------------------
 ## Ver3: **With** Instance drawing + **No** Frustum Culling
   <img src="https://github.com/bobhansky/FrustumCullingPerformanceAnalysis/blob/main/resources/28_v2f0/frame.png" width=900 height=506/>
   <img src="https://github.com/bobhansky/FrustumCullingPerformanceAnalysis/blob/main/resources/28_v2f0/renderdoc.png" width=900 height=506/>
   
-  Instance Drwaing + No Frustum Culling reduces the draw call times to 2 but rendered all 64001 objects. FPS increased to **68 fps**. Increased **353%** compared to V2
+  Instance Drawing + No Frustum Culling reduces the draw call times to 2 but rendered all 64001 objects. FPS increased to **68 fps**. Increased **353%** compared to V2
 
 -----------------------------------------------------------------------------------
 
