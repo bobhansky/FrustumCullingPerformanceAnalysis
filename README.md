@@ -69,7 +69,7 @@
   In Release Mode, where CPU performance is not capped, the bottleneck is at gpu. Fps **Increased** to **137** compared to 68 of Ver3. Increased **101%** compared to V3 
   
   In Debug Mode, CPU performance is significantly slower (to mimic cpu bottleneck). With Frustum Culling, the extra computation to check if bounding box is inside the 
-  view frustum occupies nearly half of the cpu cycles. Thus in this case, with frustum culling, the fps is **37**, significantly lower than the fps of Ver3 in **Debug mode**: still 68 fps.
+  view frustum comsumes nearly half of the cpu cycles. Thus in this case, with frustum culling, the fps is **37**, significantly lower than the fps of Ver3 in **Debug mode**: still 68 fps.
 
   CPU profile in Visual Studio 2022 shows ~45% of time is on updateVisibleObject(), inside which program performs BVH traversal and test bounding volume against view frustum.
   <img src="https://github.com/bobhansky/FrustumCullingPerformanceAnalysis/blob/main/resources/28_v2f1/vs_shots.png" />
